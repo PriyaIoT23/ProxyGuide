@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
     <color name="orange_500">#f9aa33</color>
 
 
@@ -60,5 +61,6 @@
     <color name="divider">#19FFFFFF</color>
     <color name="divider_color">#ebebeb</color>
     <color name="infoBgColor">#f6f7ff</color>
+
 
 </resources>
