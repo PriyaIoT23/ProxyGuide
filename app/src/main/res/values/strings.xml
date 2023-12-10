@@ -5,4 +5,40 @@
     <string name="title_notifications">Notifications</string>
     <string name="button_login">Sign In with Google</string>
     <string name="default_web_client_id">919760987165-4vhhckl39isi4hsju4dfhohevama7ogd.apps.googleusercontent.com</string>
+    <string name="favorite">Favourite</string>
+    <string name="poi_description">Gamla Stan, the Old Town, is one of the largest and best preserved medieval city centers in Europe, and one of the foremost attractions in Stockholm. This is where Stockholm was founded in 1252.</string>
+    <string name="poi_address">Gamla Stan, Södermalm, Stockholm, Sweden</string>
+    <string name="title_filter">Filter</string>
+    <string name="cancel">Cancel</string>
+    <string name="apply">Apply</string>
+    <string name="value_any_country">All countries\n</string>
+    <string name="value_any_city">All cities</string>
+    <string name="bottom_nav_drawer_profile_image_content_desc">profile avatar image</string>
+    <string name="profile">Profile</string>
+    <string name="messages">messages</string>
+    <string name="my_favourite_poi">Favourite</string>
+    <string name="logout">Log out</string>
+    <string name="navigation_home">Home</string>
+    <string name="fab_search_request">Filter fab</string>
+    <string name="bottom_app_bar_logo_content_desc">ProxyGuide Logo</string>
+    <string name="bottom_app_bar_chevron_content_desc">Open or close bottom navigation drawer</string>
+    <string name="title_map">Map</string>
+    <string name="title_forum">Forum</string>
+    <string name="map_key">AIzaSyBwcjTtM2tJ3TXJveqo6tJQOl9lLMJXUbA</string>
+
+    <string-array name="country_poi">
+        <item>@string/value_any_country</item>
+        <item>Sweeden</item>
+        <item>France</item>
+        <item>Hindia</item>
+    </string-array>
+
+    <string-array name="cities">
+        <item>@string/value_any_city</item>
+        <item>Stockholm</item>
+        <item>Gothenburg</item>
+        <item>Malmö</item>
+    </string-array>
+
+
 </resources>
