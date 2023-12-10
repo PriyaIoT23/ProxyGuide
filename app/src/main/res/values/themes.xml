@@ -99,4 +99,19 @@
         <item name="cornerSize">8dp</item>
     </style>
 
+    <style name="Theme.ProxyGuide_app.FilterSpinner" parent="Base.Widget.AppCompat.Spinner.Underlined">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:fontFamily">@font/josefinsans_regular</item>
+    </style>
+
+    <style name="Theme.ProxyGuide_app.FilterIcon">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+    </style>
+
 </resources>
