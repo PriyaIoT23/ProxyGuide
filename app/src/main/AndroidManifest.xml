@@ -34,9 +34,13 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_key" />
 
+      
         <activity
+            android:name=".ui.Profile"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:name=".ui.home.FilterDialogFragment"
             android:exported="false" />
+      
         <activity
             android:name=".ui.signin.SigninActivity"
             android:exported="true"
