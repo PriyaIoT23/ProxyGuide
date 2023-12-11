@@ -8,7 +8,63 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+
     <color name="colorAccent">#DE0909</color>
     <color name="gray">#A5A1A1</color>
+
+    <color name="orange_500">#f9aa33</color>
+
+
+    <color name="colorPrimary">#E0E0E0</color>
+    <color name="colorPrimaryDark">#b0bac8</color>
+    <color name="colorAccent">#FEDBD0</color>
+    <color name="textColorPrimary">#442C2E</color>
+    <!--<color name="toolbarIconColor">@color/textColorPrimary</color> -->
+    <color name="toolbarIconColor">#FFFFFF</color>
+    <color name="loginPageBackgroundColor">#FFFFFF</color>
+    <color name="productGridBackgroundColor">#FFFBFA</color>
+    <color name="textInputOutlineColor">#FBB8AC</color>
+    <color name="colorBottomNavigation">#FD9725</color>
+    <color name="colorBottomNavigationBg">#FFFFFF</color>
+
+<!--
+    <color name="purple_200">#adbbc4</color>
+    <color name="purple_500">#4a6572</color>
+    <color name="purple_700">#344955</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="toolbarIconColor">#ffffff</color>
+-->
+
+    <color name="white_50">#ffffff</color>
+    <color name="black_800">#121212</color>
+    <color name="black_900">#000000</color>
+
+
+    <color name="grey_blue_50">#eef0f2</color>
+    <color name="grey_blue_100">#d2dbe0</color>
+    <color name="grey_blue_200">#adbbc4</color>
+    <color name="grey_blue_300">#8ca2ae</color>
+    <color name="grey_blue_600">#4a6572</color>
+    <color name="grey_blue_700">#344955</color>
+    <color name="grey_blue_800">#232f34</color>
+
+    <color name="orange_300">#fbd790</color>
+    <color name="orange_400">#f9be64</color>
+
+    <color name="red_200">#cf7779</color>
+    <color name="red_400">#ff4c5d</color>
+    <color name="white_50_alpha_060">#99ffffff</color>
+    <color name="blue_50_alpha_060">#99eef0f2</color>
+    <color name="black_900_alpha_020">#33000000</color>
+    <color name="black_900_alpha_087">#de000000</color>
+    <color name="black_900_alpha_060">#99000000</color>
+    <color name="nav_bar">@color/black_900_alpha_020</color>
+    <color name="divider">#19FFFFFF</color>
+    <color name="divider_color">#ebebeb</color>
+    <color name="infoBgColor">#f6f7ff</color>
+
 
 </resources>

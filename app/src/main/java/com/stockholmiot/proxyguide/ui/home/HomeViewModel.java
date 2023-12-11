@@ -4,16 +4,31 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.stockholmiot.proxyguide.ui.home.models.Filters;
+
 public class HomeViewModel extends ViewModel {
 
-    private final MutableLiveData<String> mText;
+    private boolean mIsSigningIn;
+    private Filters mFilters;
 
     public HomeViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is home fragment");
+        mIsSigningIn = false;
+        mFilters = Filters.getDefault();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public boolean getIsSigningIn() {
+        return mIsSigningIn;
+    }
+
+    public void setIsSigningIn(boolean mIsSigningIn) {
+        this.mIsSigningIn = mIsSigningIn;
+    }
+
+    public Filters getFilters() {
+        return mFilters;
+    }
+
+    public void setFilters(Filters mFilters) {
+        this.mFilters = mFilters;
     }
 }

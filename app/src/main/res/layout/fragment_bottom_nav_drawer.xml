@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/backdrop"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="invisible">
+
+
+    <FrameLayout
+        android:id="@+id/background_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_blue_800"
+        app:behavior_hideable="false"
+        app:behavior_skipCollapsed="true"
+        app:layout_behavior="@string/bottom_sheet_behavior">
+
+        <!--Container to act as the drawer's foreground container and hold all navigation-->
+
+        <io.github.florent37.shapeofview.shapes.CircleView
+            android:id="@+id/menu_user_profile"
+            android:layout_width="@dimen/navigation_drawer_profile_image_size"
+            android:layout_height="@dimen/navigation_drawer_profile_image_size"
+            android:layout_gravity="center|top"
+            android:elevation="4dp"
+            app:shape_circle_borderColor="@android:color/transparent"
+            app:shape_circle_borderWidth="2dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image_view"
+                android:layout_width="@dimen/navigation_drawer_profile_image_size"
+                android:layout_height="@dimen/navigation_drawer_profile_image_size"
+                android:layout_gravity="center|top"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/bottom_nav_drawer_profile_image_content_desc"
+                android:foreground="?attr/actionBarItemBackground"
+                android:padding="@dimen/grid_1"
+                android:src="@drawable/user_profile" />
+
+        </io.github.florent37.shapeofview.shapes.CircleView>
+
+
+        <LinearLayout
+            android:id="@+id/foreground_container"
+            android:layout_width="match_parent"
+            android:layout_height="710dp"
+            android:layout_marginTop="@dimen/grid_3"
+            android:background="@color/grey_blue_700"
+            android:orientation="vertical"
+            android:paddingTop="@dimen/grid_3"
+            android:paddingBottom="@dimen/grid_4"
+            app:fabCradleMargin="@dimen/bottom_app_bar_fab_cradle_margin"
+            app:fabCradleRoundedCornerRadius="@dimen/bottom_app_bar_fab_cradle_corner_radius">
+
+            <TextView
+                android:id="@+id/navigation_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/work_sans"
+                android:text="@string/profile"
+                android:textColor="@color/orange_400"
+                app:drawableStartCompat="@drawable/ic_account_box_24"
+                app:drawableTint="@color/orange_400" />
+
+            <TextView
+                android:id="@+id/navigation_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/work_sans"
+                android:text="@string/messages"
+                android:textColor="@color/white_50"
+                app:drawableLeftCompat="@drawable/ic_baseline_message_24"
+                app:drawableTint="@color/white_50" />
+
+            <TextView
+                android:id="@+id/navigation_favourite_poi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/work_sans"
+                android:text="@string/my_favourite_poi"
+                android:textColor="@color/white_50"
+                app:drawableStartCompat="@drawable/ic_pleine_favorite_24"
+                app:drawableTint="@color/white_50" />
+
+            <View
+                android:id="@+id/scrim_view"
+                android:layout_width="250dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/divider" />
+
+           <!--TextView
+                android:id="@+id/navigation_help"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/work_sans"
+                android:text="@string/help"
+                android:textColor="@color/white_50"
+                app:drawableStartCompat="@drawable/ic_help_outline_24"
+                app:drawableTint="@color/white_50" /-->
+
+            <!--TextView
+                android:id="@+id/navigation_comment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/work_sans"
+                android:text="@string/comments"
+                android:textColor="@color/white_50"
+                app:drawableStartCompat="@drawable/ic_mode_comment_24"
+                app:drawableTint="@color/white_50" /-->
+
+            <!--TextView
+                android:id="@+id/navigation_settings"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/work_sans"
+                android:text="@string/settings"
+                android:textColor="@color/white_50"
+                app:drawableStartCompat="@drawable/ic__settings_24"
+                app:drawableTint="@color/white_50" /-->
+
+            <TextView
+                android:id="@+id/navigation_logout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:drawablePadding="16dp"
+                android:fontFamily="@font/work_sans"
+                android:text="@string/logout"
+                android:textColor="@color/white_50"
+                app:drawableStartCompat="@drawable/ic_exit_to_app_24"
+                app:drawableTint="@color/white_50" />
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
