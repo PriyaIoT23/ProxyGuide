@@ -45,6 +45,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.stockholmiot.proxyguide.databinding.ActivityMainBinding;
 import com.stockholmiot.proxyguide.ui.NavigationHost;
+import com.stockholmiot.proxyguide.ui.forum.ForumChatActivity;
 import com.stockholmiot.proxyguide.ui.home.HomeFragment;
 import com.stockholmiot.proxyguide.ui.home.models.PoIModel;
 import com.stockholmiot.proxyguide.ui.map.MapsFragment;
@@ -180,6 +181,8 @@ public class MainActivity extends AppCompatActivity implements NavigationHost, V
                     int id = item.getItemId();
                     if (id == R.id.navigation_forum) {
                         //navigateTo(new NotificationFragment(), true);
+                        Intent startForum = new Intent(getApplicationContext(), ForumChatActivity.class);
+                        startActivity(startForum);
                     } else if (id == R.id.navigation_map) {
                         navigateToMap(new MapsFragment(), true);
                     } else if (id == R.id.logout_navigation) {

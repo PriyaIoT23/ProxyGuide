@@ -3,11 +3,13 @@ import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.widget.Button;
+import android.widget.ImageButton;
+
 public class ButtonObserver implements TextWatcher{
 
-    private final Button mButton;
+    private final ImageButton mButton;
 
-    public ButtonObserver(Button button) {
+    public ButtonObserver(ImageButton button) {
         mButton = button;
     }
 

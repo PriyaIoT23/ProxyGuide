@@ -40,6 +40,10 @@
     <dimen name="dialog_avatar_width">56dp</dimen>
     <dimen name="dialog_avatar_height">56dp</dimen>
     <dimen name="app_bar_height">270dp</dimen>
+    <dimen name="main_item_list_spacing">12dp</dimen>
+
+    <!-- Spacing between items and its parent in the main list -->
+    <dimen name="main_item_parent_spacing">2dp</dimen>
 
 
     <!--Dimension DetailAds !-->
