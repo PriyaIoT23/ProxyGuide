@@ -45,4 +45,13 @@
     <!--Dimension DetailAds !-->
     <dimen name="ads_images_height">200dp</dimen>
     <!--End Dimension DetailAds !-->
+
+
+
+    <!-- Spacing between items in the main list -->
+    <dimen name="main_item_list_spacing">12dp</dimen>
+
+    <!-- Spacing between items and its parent in the main list -->
+    <dimen name="main_item_parent_spacing">2dp</dimen>
+
 </resources>

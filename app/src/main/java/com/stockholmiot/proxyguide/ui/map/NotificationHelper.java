@@ -68,7 +68,7 @@ public class NotificationHelper extends ContextWrapper {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, id)
                 .setSmallIcon(R.drawable.img_app_logo)
                 .setStyle(new NotificationCompat.BigPictureStyle())
-                .setContentTitle("Title")
+                .setContentTitle("Notification")
                 .setContentText(body)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
                 .setVibrate(new long[]{100, 1000, 200, 340})

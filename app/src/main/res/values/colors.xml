@@ -9,9 +9,14 @@
     <color name="white">#FFFFFFFF</color>
     <color name="orange_500">#f9aa33</color>
 
+    <color name="colorPrimary">#FF9800</color>
+    <color name="colorPrimaryDark">#E65100</color>
+    <color name="colorLightGray">#ececec</color>
 
-    <color name="colorPrimary">#E0E0E0</color>
-    <color name="colorPrimaryDark">#b0bac8</color>
+
+    <!--  <color name="colorPrimary">#E0E0E0</color> -->
+    <!--  <color name="colorPrimaryDark">#b0bac8</color> -->
+
     <color name="colorAccent">#FEDBD0</color>
     <color name="textColorPrimary">#442C2E</color>
     <!--<color name="toolbarIconColor">@color/textColorPrimary</color> -->
@@ -32,7 +37,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="toolbarIconColor">#ffffff</color>
 -->
-
+    <color name="colorDarkGray">#b4b4b4</color>
     <color name="white_50">#ffffff</color>
     <color name="black_800">#121212</color>
     <color name="black_900">#000000</color>

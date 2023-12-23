@@ -25,6 +25,7 @@
     <string name="title_map">Map</string>
     <string name="title_forum">Forum</string>
     <string name="map_key">AIzaSyBwcjTtM2tJ3TXJveqo6tJQOl9lLMJXUbA</string>
+    <string name="label_button_main_send">Send</string>
 
     <string-array name="country_poi">
         <item>@string/value_any_country</item>

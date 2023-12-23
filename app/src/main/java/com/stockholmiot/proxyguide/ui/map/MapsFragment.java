@@ -384,7 +384,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             // app.
             Log.d(TAG, "calling BG location function works");
             enableMyLocation();
-            onMapReady(mMap);
+            //onMapReady(mMap);
         } else {
             // Explain to the user that the feature is unavailable because the
             // feature requires a permission that the user has denied. At the
@@ -416,7 +416,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             // app.
             Log.d(TAG, "calling notification function works");
             enableMyLocation();
-            onMapReady(mMap);
+            //onMapReady(mMap);
         } else {
             // Explain to the user that the feature is unavailable because the
             // feature requires a permission that the user has denied. At the
