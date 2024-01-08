@@ -28,6 +28,7 @@ import com.google.firebase.firestore.Query;
 import com.stockholmiot.proxyguide.MainActivity;
 import com.stockholmiot.proxyguide.R;
 import com.stockholmiot.proxyguide.databinding.FragmentHomeBinding;
+import com.stockholmiot.proxyguide.ui.home.activities.DetailPoIActivity;
 import com.stockholmiot.proxyguide.ui.home.adapters.PoIAdapter;
 import com.stockholmiot.proxyguide.ui.home.models.Filters;
 import com.stockholmiot.proxyguide.util.FirebaseUtil;
@@ -40,6 +41,7 @@ public class HomeFragment extends Fragment  implements PoIAdapter.OnPoISelectedL
     private static final int LIMIT = 50;
     private static final String SUCCESS_TRANSACTION_STATUS = "SUCCESS";
     private static final String TAG = "MainActivity";
+    public static final String KEY_POI_ID = "key_poi_id";
     private static final int SPLASH_SCREEN = 60000;
     private FirebaseFirestore mFirestore;
     private Query mQuery;
@@ -224,10 +226,10 @@ public class HomeFragment extends Fragment  implements PoIAdapter.OnPoISelectedL
     }
 
     @Override
-    public void onPoISelected(DocumentSnapshot ads) {
-        /*Intent startDetailAds = new Intent(getContext(), DetailAdsActivity.class);
-        startDetailAds.putExtra(KEY_ADS_ID, ads.getId());
-        startDetailAds.putExtra(CLIENT_PAID_STATUS, "NOT PAID");
-        startActivity(startDetailAds); */
+    public void onPoISelected(DocumentSnapshot poi) {
+
+        Intent startDetailAds = new Intent(getContext(), DetailPoIActivity.class);
+        startDetailAds.putExtra(KEY_POI_ID, poi.getId());
+        startActivity(startDetailAds);
     }
 }

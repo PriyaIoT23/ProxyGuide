@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -42,6 +44,7 @@ import com.stockholmiot.proxyguide.ui.forum.Adapters.ScrollToBottomObserver;
 import com.stockholmiot.proxyguide.ui.forum.models.FriendlyMessage;
 import com.stockholmiot.proxyguide.ui.forum.models.IntentUtility;
 import com.stockholmiot.proxyguide.ui.forum.models.VerticalListItemSpacingDecoration;
+import com.stockholmiot.proxyguide.ui.nearby.ContactActivity;
 import com.stockholmiot.proxyguide.util.FirebaseUtil;
 
 public class ForumActivity extends AppCompatActivity {
@@ -67,6 +70,9 @@ public class ForumActivity extends AppCompatActivity {
         // Set the root view from ViewBinding instance
         setContentView(mBinding.getRoot());
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         //setContentView(R.layout.activity_forum);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -76,83 +82,87 @@ public class ForumActivity extends AppCompatActivity {
         // Initialize Firestore and the main RecyclerView
         mFirestore = FirebaseUtil.getFirestore();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference messagesRef = mFirebaseDatabase.getReference().child(MESSAGES_CHILD);
+        try {
+            DatabaseReference messagesRef = mFirebaseDatabase.getReference().child(MESSAGES_CHILD);
 
-        FirebaseRecyclerOptions<FriendlyMessage> options = new FirebaseRecyclerOptions.Builder<FriendlyMessage>()
-                .setQuery(messagesRef, FriendlyMessage.class)
-                // Listen to the changes in the Query and automatically update to the UI
-                .setLifecycleOwner(this)
-                .build();
+            FirebaseRecyclerOptions<FriendlyMessage> options = new FirebaseRecyclerOptions.Builder<FriendlyMessage>()
+                    .setQuery(messagesRef, FriendlyMessage.class)
+                    // Listen to the changes in the Query and automatically update to the UI
+                    .setLifecycleOwner(this)
+                    .build();
 
-        // Construct the FirebaseRecyclerAdapter with the options set
-        FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder>(options) {
-            @NonNull
-            @Override
-            public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                return new MessageViewHolder(
-                        LayoutInflater.from(parent.getContext())
-                                .inflate(R.layout.item_message, parent, false)
-                );
-            }
+            // Construct the FirebaseRecyclerAdapter with the options set
+            FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder>(options) {
+                @NonNull
+                @Override
+                public MessageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                    return new MessageViewHolder(
+                            LayoutInflater.from(parent.getContext())
+                                    .inflate(R.layout.item_message, parent, false)
+                    );
+                }
 
-            @Override
-            protected void onBindViewHolder(@NonNull MessageViewHolder holder, int position, @NonNull FriendlyMessage message) {
-                mBinding.progressBar.setVisibility(ProgressBar.INVISIBLE);
-                holder.bindMessage(message);
-            }
-        };
+                @Override
+                protected void onBindViewHolder(@NonNull MessageViewHolder holder, int position, @NonNull FriendlyMessage message) {
+                    mBinding.progressBar.setVisibility(ProgressBar.INVISIBLE);
+                    holder.bindMessage(message);
+                }
+            };
 
-        // Initialize LinearLayoutManager and RecyclerView
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
-        linearLayoutManager.setStackFromEnd(false);
-        mBinding.messageRecyclerView.setLayoutManager(linearLayoutManager);
-        mBinding.messageRecyclerView.setAdapter(firebaseRecyclerAdapter);
-        mBinding.messageRecyclerView.addItemDecoration(new VerticalListItemSpacingDecoration(
-                getResources().getDimensionPixelSize(R.dimen.main_item_list_spacing),
-                getResources().getDimensionPixelSize(R.dimen.main_item_parent_spacing)
-        ));
+            // Initialize LinearLayoutManager and RecyclerView
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+            linearLayoutManager.setStackFromEnd(false);
+            mBinding.messageRecyclerView.setLayoutManager(linearLayoutManager);
+            mBinding.messageRecyclerView.setAdapter(firebaseRecyclerAdapter);
+            mBinding.messageRecyclerView.addItemDecoration(new VerticalListItemSpacingDecoration(
+                    getResources().getDimensionPixelSize(R.dimen.main_item_list_spacing),
+                    getResources().getDimensionPixelSize(R.dimen.main_item_parent_spacing)
+            ));
 
-        // Register an observer for watching changes in the Adapter data in order to scroll
-        // to the bottom of the list when the user is at the bottom of the list
-        // in order to show newly added messages
-        firebaseRecyclerAdapter.registerAdapterDataObserver(
-                new ScrollToBottomObserver(
-                        mBinding.messageRecyclerView,
-                        firebaseRecyclerAdapter,
-                        linearLayoutManager
-                )
-        );
+            // Register an observer for watching changes in the Adapter data in order to scroll
+            // to the bottom of the list when the user is at the bottom of the list
+            // in order to show newly added messages
+            firebaseRecyclerAdapter.registerAdapterDataObserver(
+                    new ScrollToBottomObserver(
+                            mBinding.messageRecyclerView,
+                            firebaseRecyclerAdapter,
+                            linearLayoutManager
+                    )
+            );
 
-        // Disable the send button when there is no text in this input message field
-        mBinding.messageEditText.addTextChangedListener(new ButtonObserver(mBinding.sendButton));
+            // Disable the send button when there is no text in this input message field
+            mBinding.messageEditText.addTextChangedListener(new ButtonObserver(mBinding.sendButton));
 
-        // Register a click listener on the Send Button to send messages on click
-        mBinding.sendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                FriendlyMessage friendlyMessage = new FriendlyMessage(
-                        getMessageToSend(),
-                        getUserName(),
-                        getUserPhotoUrl(),
-                        null /* not an image based message */
-                );
+            // Register a click listener on the Send Button to send messages on click
+            mBinding.sendButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FriendlyMessage friendlyMessage = new FriendlyMessage(
+                            getMessageToSend(),
+                            getUserName(),
+                            getUserPhotoUrl(),
+                            null /* not an image based message */
+                    );
 
-                // Create a child reference and set the user's message at that location
-                mFirebaseDatabase.getReference().child(MESSAGES_CHILD)
-                        .push().setValue(friendlyMessage);
-                // Clear the input message field for the next message
-                mBinding.messageEditText.setText("");
-            }
-        });
+                    // Create a child reference and set the user's message at that location
+                    mFirebaseDatabase.getReference().child(MESSAGES_CHILD)
+                            .push().setValue(friendlyMessage);
+                    // Clear the input message field for the next message
+                    mBinding.messageEditText.setText("");
+                }
+            });
 
-        // Register a click listener on the Add Image Button to send messages with Image on click
-        mBinding.addMessageImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Launch Gallery Intent for Image selection
-                IntentUtility.launchGallery(ForumActivity.this, REQUEST_IMAGE);
-            }
-        });
+            // Register a click listener on the Add Image Button to send messages with Image on click
+            mBinding.addMessageImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // Launch Gallery Intent for Image selection
+                    IntentUtility.launchGallery(ForumActivity.this, REQUEST_IMAGE);
+                }
+            });
+        } catch (Resources.NotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -178,12 +188,18 @@ public class ForumActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        //inflater.inflate(R.menu.main_menu, menu);
+        inflater.inflate(R.menu.main_menu, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+        if( item.getItemId()  == R.id.action_connected_users){
+            Intent intent = new Intent(this, ContactActivity.class);
+            startActivity(intent);
+            //Toast.makeText(this, "working....", Toast.LENGTH_SHORT).show();
+        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -233,6 +249,19 @@ public class ForumActivity extends AppCompatActivity {
             return mBinding.messageEditText.getText().toString();
         }
     }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        //onBackPressed();
+        finish();
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable final Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

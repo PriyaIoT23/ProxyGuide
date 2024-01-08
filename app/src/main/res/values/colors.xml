@@ -65,5 +65,7 @@
     <color name="divider">#19FFFFFF</color>
     <color name="divider_color">#ebebeb</color>
     <color name="infoBgColor">#f6f7ff</color>
+    <color name="white_three">#ebebeb</color>
+    <color name="dialog_divider">@color/white_three</color>
 
 </resources>

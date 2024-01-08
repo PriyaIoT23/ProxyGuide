@@ -24,8 +24,16 @@
     <string name="bottom_app_bar_chevron_content_desc">Open or close bottom navigation drawer</string>
     <string name="title_map">Map</string>
     <string name="title_forum">Forum</string>
+    <string name="title_chat">Chat</string>
     <string name="map_key">AIzaSyBwcjTtM2tJ3TXJveqo6tJQOl9lLMJXUbA</string>
     <string name="label_button_main_send">Send</string>
+    <string name="action_nearby_users">Nearby Users</string>
+    <string name="error_missing_permissions">Cannot start without required permissions</string>
+    <string name="close">Close</string>
+    <string name="detail_poi">Details</string>
+    <string name="viewAll">View all</string>
+    <string name="pictures">Pictures</string>
+    <string name="view_on_map">View on Map</string>
 
     <string-array name="country_poi">
         <item>@string/value_any_country</item>
