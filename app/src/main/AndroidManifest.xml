@@ -84,13 +84,18 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/map_key" />
 
+      
         <activity
             android:name=".ui.nearby.ContactActivity"
             android:exported="false"
             android:label="@string/action_nearby_users" />
-        <activity
+        
+      <activity
             android:name=".ui.home.FilterDialogFragment"
+            android:name=".ui.Profile"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
             android:exported="false" />
+      
         <activity
             android:name=".ui.signin.SigninActivity"
             android:exported="true"
