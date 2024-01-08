@@ -129,7 +129,7 @@ public class SigninActivity extends AppCompatActivity {
                             user.setAddress(defaultEmail);
                             user.setUsername(defaultUSerName);
                             user.setProfileUrl(defaultPhotoUrl);
-
+                            user.setNearby(false);
                             docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                                 @Override
                                 public void onComplete(@NonNull @NotNull Task<DocumentSnapshot> task) {

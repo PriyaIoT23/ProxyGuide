@@ -1,0 +1,102 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialogRootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/dialogContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/dialogAvatar"
+            android:layout_width="@dimen/dialog_avatar_width"
+            android:layout_height="@dimen/dialog_avatar_height"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:src="@drawable/user_profile" />
+
+        <TextView
+            android:id="@+id/textOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="4dp"
+            android:paddingRight="16dp"
+            android:text="&#8942;"
+            android:visibility="visible"
+            android:textAppearance="?android:textAppearanceLarge" />
+
+
+        <TextView
+            android:id="@+id/dialogName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_toEndOf="@id/dialogAvatar"
+            android:layout_toRightOf="@id/dialogAvatar"
+            android:ellipsize="end"
+            android:hint="user name"
+            android:fontFamily="@font/josefinsans_bold"
+            android:includeFontPadding="false"
+            android:maxLines="1" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialogName"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_toEndOf="@id/dialogAvatar"
+            android:layout_toRightOf="@id/dialogAvatar">
+
+            <TextView
+                android:id="@+id/dialogLastMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:hint="I'm using ProxyGuide"
+                android:fontFamily="@font/josefinsans_bold"
+                android:ellipsize="end"
+                android:gravity="top"
+                android:maxLines="1" />
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/onlineIndicator"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_alignTop="@id/dialogAvatar"
+            android:layout_alignRight="@id/dialogAvatar"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/shape_bubble_online" />
+
+
+        <FrameLayout
+            android:id="@+id/dialogDividerContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="16dp">
+
+            <View
+                android:id="@+id/dialogDivider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dialog_divider" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

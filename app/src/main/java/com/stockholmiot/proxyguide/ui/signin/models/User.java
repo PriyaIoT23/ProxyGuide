@@ -24,6 +24,8 @@ public class User {
     private String phone;
     private String uid;
 
+    private boolean isNearby;
+
     public User() {
     }
 
@@ -33,7 +35,7 @@ public class User {
 
     public User(String token, String birthday, String username,
                 String profileUrl, String profile, String gender,
-                String address, String phone, String uid) {
+                String address, String phone, String uid, boolean isNearby) {
 
         this.token = token;
         this.birthday = birthday;
@@ -44,11 +46,12 @@ public class User {
         this.address = address;
         this.phone = phone;
         this.uid = uid;
+        this.isNearby = isNearby;
     }
 
     public User(String token, String birthday, String username,
                 String profileUrl, String profile, String gender,
-                String address, String phone) {
+                String address, String phone, boolean isNearby) {
 
         this.token = token;
         this.birthday = birthday;
@@ -58,6 +61,7 @@ public class User {
         this.gender = gender;
         this.address = address;
         this.phone = phone;
+        this.isNearby = isNearby;
     }
 
     public User(String token, String birthday, String username, String profileUrl, String profile) {
@@ -138,5 +142,13 @@ public class User {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public boolean isNearby() {
+        return isNearby;
+    }
+
+    public void setNearby(boolean nearby) {
+        isNearby = nearby;
     }
 }

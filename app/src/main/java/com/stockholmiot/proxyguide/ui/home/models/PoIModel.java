@@ -112,4 +112,5 @@ public class PoIModel  implements Serializable {
         this.number_views = number_views;
     }
 
+
 }
