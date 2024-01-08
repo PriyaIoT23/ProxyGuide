@@ -90,12 +90,57 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:919760987165:android:886719a23278ccea9852f4",
+        "android_client_info": {
+          "package_name": "com.cintech.urbaincity"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "919760987165-0v60ulois3asj6jhbhev7dchj2kgk5ff.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cintech.urbaincity",
+            "certificate_hash": "2d52918ccb38782f9b3dc6b910fe179047ee90c0"
+          }
+        },
+        {
+          "client_id": "919760987165-ng761i8egpr1sqkufpl4f3eaosk99pgh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWa2LZAsKBoqFJW8DZ9ZtMoglEF6IwxME"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "919760987165-ng761i8egpr1sqkufpl4f3eaosk99pgh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:919760987165:android:8ae0a1cd632171fb9852f4",
         "android_client_info": {
           "package_name": "com.stockholmiot.proxyguide"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "919760987165-4vhhckl39isi4hsju4dfhohevama7ogd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.stockholmiot.proxyguide",
+            "certificate_hash": "2d52918ccb38782f9b3dc6b910fe179047ee90c0"
+          }
+        },
         {
           "client_id": "919760987165-ng761i8egpr1sqkufpl4f3eaosk99pgh.apps.googleusercontent.com",
           "client_type": 3

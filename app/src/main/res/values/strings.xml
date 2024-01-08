@@ -4,6 +4,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="button_login">Sign In with Google</string>
+    <!--919760987165-ridb97om6m4uneek0g16s2nlpjt67tdk.apps.googleusercontent.com-->
     <string name="default_web_client_id">919760987165-4vhhckl39isi4hsju4dfhohevama7ogd.apps.googleusercontent.com</string>
     <string name="favorite">Favourite</string>
     <string name="poi_description">Gamla Stan, the Old Town, is one of the largest and best preserved medieval city centers in Europe, and one of the foremost attractions in Stockholm. This is where Stockholm was founded in 1252.</string>
@@ -34,6 +35,7 @@
     <string name="viewAll">View all</string>
     <string name="pictures">Pictures</string>
     <string name="view_on_map">View on Map</string>
+    <string name="proxy_logo">ProxyGuide logo</string>
 
     <string-array name="country_poi">
         <item>@string/value_any_country</item>
